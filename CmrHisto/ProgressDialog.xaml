@@ -1,0 +1,9 @@
+﻿<Window x:Class="CmrHisto.ProgressDialog"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Please wait..." Height="115" Width="300" WindowStyle="ToolWindow" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" Icon="Icons/main.ico">
+    <Grid>
+        <StackPanel>
+            <Label Name="mProgressLabel" Content="Please wait while the selected file is opened..." />
+            <ProgressBar Height="25" IsIndeterminate="true" />
+        </StackPanel>
+    </Grid>
+</Window>

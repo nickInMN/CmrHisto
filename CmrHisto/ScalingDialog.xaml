@@ -1,0 +1,94 @@
+﻿<Window x:Class="CmrHisto.ScalingDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="RPM Scaling" Height="633" Width="376" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Icon="Icons/scale.ico">
+    <Grid Name="mTextGrid">
+        <Menu Height="22" VerticalAlignment="Top">
+            <Menu.Effect>
+                <DropShadowEffect />
+            </Menu.Effect>
+            <MenuItem Header="File">
+                <MenuItem Header="Load a saved scale..." ToolTip="Load an existing scale." Click="LoadSavedClick" />
+                <MenuItem Header="Save this scale as..." ToolTip="Save the current scale for use later." Click="SaveScaleClick" />
+            </MenuItem>
+            <MenuItem Header="Options">
+                <MenuItem Header="Manually Enter Scale" Name="mMaunalScaleCheckbox" ToolTip="Disable automatic scale generation and allow for manual scale creation" Click="ManuallyEnterScaleMenuItemClick" IsCheckable="True" IsChecked="False"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <GroupBox Name="mGroupBox" Margin="9.5,30,9.5,38" Header="Custom RPM Scaling">
+            <Label Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top">Column</Label>
+        </GroupBox>
+        <Label Height="28" Margin="83,47,0,0" VerticalAlignment="Top" Width="60" HorizontalAlignment="Left">Low</Label>
+        <Label Height="28" Margin="231,47,0,0" VerticalAlignment="Top" Width="60" HorizontalAlignment="Left">High</Label>
+        <Label Height="28" HorizontalAlignment="Left" Margin="15.5,69,0,0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Center">1</Label>
+        <Label Height="28" HorizontalAlignment="Left" Margin="15.5,97,0,0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Center">2</Label>
+        <Label Height="28" HorizontalAlignment="Left" Margin="15.5,125,0,0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Center">3</Label>
+        <Label Height="28" HorizontalAlignment="Left" Margin="15.5,153,0,0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Center">4</Label>
+        <Label Height="28" HorizontalAlignment="Left" Margin="15.5,181,0,0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Center">5</Label>
+        <Label Height="28" HorizontalAlignment="Left" Margin="15.5,209,0,0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Center">6</Label>
+        <Label Height="28" HorizontalAlignment="Left" Margin="15.5,238,0,0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Center">7</Label>
+        <Label Height="28" HorizontalAlignment="Left" Margin="15.5,266,0,0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Center">8</Label>
+        <Label Height="28" HorizontalAlignment="Left" Margin="15.5,294,0,0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Center">9</Label>
+        <Label Height="28" HorizontalAlignment="Left" Margin="15.5,322,0,0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Center">10</Label>
+        <Label Height="28" HorizontalAlignment="Left" Margin="15.5,350,0,0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Center">11</Label>
+        <Label Height="28" HorizontalAlignment="Left" Margin="15.5,378,0,0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Center">12</Label>
+        <Label Height="28" HorizontalAlignment="Left" Margin="15.5,406,0,0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Center">13</Label>
+        <Label Height="28" HorizontalAlignment="Left" Margin="15.5,434,0,0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Center">14</Label>
+        <Label Height="28" HorizontalAlignment="Left" Margin="15.5,462,0,0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Center">15</Label>
+        <Label Height="28" HorizontalAlignment="Left" Margin="15.5,490,0,0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Center">16</Label>
+        <Label Height="28" HorizontalAlignment="Left" Margin="15.5,518,0,0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Center">17</Label>
+        <Button Name="mApplyButton" Height="23" HorizontalAlignment="Left" Margin="53,0,0,9" VerticalAlignment="Bottom" Width="75" TabIndex="18" Click="ApplyButtonClick" >Apply</Button>
+        <Button Name="mCancelButton" Height="23" HorizontalAlignment="Left" Margin="142,0,0,9" VerticalAlignment="Bottom" Width="75" TabIndex="19" Click="CancelButtonClick">Cancel</Button>
+        <Button Name="mDefaultsButton" Height="23" HorizontalAlignment="Left" Margin="230,0,0,9" VerticalAlignment="Bottom" Width="75" TabIndex="20" Click="DefaultsButtonClick">Defaults</Button>
+        <TextBox Name="mLowRow1" Height="23" Margin="83,74,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus"  TabIndex="21"/>
+        <TextBox Name="mLowRow2" Height="23" Margin="83,102,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="23"/>
+        <TextBox Name="mLowRow3" Height="23" Margin="83,130,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="25"/>
+        <TextBox Name="mLowRow4" Height="23" Margin="83,158,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="27"/>
+        <TextBox Name="mLowRow5" Height="23" Margin="83,186,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="29"/>
+        <TextBox Name="mLowRow6" Height="23" Margin="83,214,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="31"/>
+        <TextBox Name="mLowRow7" Height="23" Margin="83,242,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="33"/>
+        <TextBox Name="mLowRow8" Height="23" Margin="83,270,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="35"/>
+        <TextBox Name="mLowRow9" Height="23" Margin="83,298,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="37"/>
+        <TextBox Name="mLowRow10" Height="23" Margin="83,326,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="39"/>
+        <TextBox Name="mLowRow11" Height="23" Margin="83,354,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="41"/>
+        <TextBox Name="mLowRow12" Height="23" Margin="83,382,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="43"/>
+        <TextBox Name="mLowRow13" Height="23" Margin="83,410,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="45"/>
+        <TextBox Name="mLowRow14" Height="23" Margin="83,438,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="47"/>
+        <TextBox Name="mLowRow15" Height="23" Margin="83,466,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="49"/>
+        <TextBox Name="mLowRow16" Height="23" Margin="83,494,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="51"/>
+        <TextBox Name="mLowRow17" Height="23" Margin="83,522,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="53"/>
+        <TextBox Name="mHighRow1" Height="23" Margin="231,74,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="22"/>
+        <TextBox Name="mHighRow2" Height="23" Margin="231,102,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="24"/>
+        <TextBox Name="mHighRow3" Height="23" Margin="231,130,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="26"/>
+        <TextBox Name="mHighRow4" Height="23" Margin="231,158,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="28"/>
+        <TextBox Name="mHighRow5" Height="23" Margin="231,186,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="30"/>
+        <TextBox Name="mHighRow6" Height="23" Margin="231,214,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="32"/>
+        <TextBox Name="mHighRow7" Height="23" Margin="231,242,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="34"/>
+        <TextBox Name="mHighRow8" Height="23" Margin="231,270,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="36"/>
+        <TextBox Name="mHighRow9" Height="23" Margin="231,298,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="38"/>
+        <TextBox Name="mHighRow10" Height="23" Margin="231,326,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="40"/>
+        <TextBox Name="mHighRow11" Height="23" Margin="231,354,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="42"/>
+        <TextBox Name="mHighRow12" Height="23" Margin="231,382,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="44"/>
+        <TextBox Name="mHighRow13" Height="23" Margin="231,410,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="46"/>
+        <TextBox Name="mHighRow14" Height="23" Margin="231,438,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="48"/>
+        <TextBox Name="mHighRow15" Height="23" Margin="231,466,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="50"/>
+        <TextBox Name="mHighRow16" Height="23" Margin="231,494,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="52"/>
+        <TextBox Name="mHighRow17" Height="23" Margin="231,522,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" IsEnabled="false" LostFocus="TextBoxLostFocus" GotFocus="Textbox_GotFocus" TabIndex="54"/>
+        <Label Content="Middle" Height="28" HorizontalAlignment="Left" Margin="157,47,0,0" VerticalAlignment="Top" Width="60" />
+        <TextBox Name="mValueRow1" Height="23" HorizontalAlignment="Left" Margin="157,74,0,0" TabIndex="1" VerticalAlignment="Top" Width="60" LostFocus="FirstValueRow_LostFocus" GotFocus="Textbox_GotFocus" />
+        <TextBox Name="mValueRow2" Height="23" HorizontalAlignment="Left" Margin="157,102,0,0" TabIndex="2" VerticalAlignment="Top" Width="60" LostFocus="MiddleValueRow_LostFocus" GotFocus="Textbox_GotFocus" />
+        <TextBox Name="mValueRow3" Height="23" HorizontalAlignment="Left" Margin="157,130,0,0" TabIndex="3" VerticalAlignment="Top" Width="60" LostFocus="MiddleValueRow_LostFocus" GotFocus="Textbox_GotFocus" />
+        <TextBox Name="mValueRow4" Height="23" HorizontalAlignment="Left" Margin="157,158,0,0" TabIndex="4" VerticalAlignment="Top" Width="60" LostFocus="MiddleValueRow_LostFocus" GotFocus="Textbox_GotFocus" />
+        <TextBox Name="mValueRow5" Height="23" HorizontalAlignment="Left" Margin="157,186,0,0" TabIndex="5" VerticalAlignment="Top" Width="60" LostFocus="MiddleValueRow_LostFocus" GotFocus="Textbox_GotFocus" />
+        <TextBox Name="mValueRow6" Height="23" HorizontalAlignment="Left" Margin="157,214,0,0" TabIndex="6" VerticalAlignment="Top" Width="60" LostFocus="MiddleValueRow_LostFocus" GotFocus="Textbox_GotFocus" />
+        <TextBox Name="mValueRow7" Height="23" HorizontalAlignment="Left" Margin="157,242,0,0" TabIndex="7" VerticalAlignment="Top" Width="60" LostFocus="MiddleValueRow_LostFocus" GotFocus="Textbox_GotFocus" />
+        <TextBox Name="mValueRow8" Height="23" HorizontalAlignment="Left" Margin="157,270,0,0" TabIndex="8" VerticalAlignment="Top" Width="60" LostFocus="MiddleValueRow_LostFocus" GotFocus="Textbox_GotFocus" />
+        <TextBox Name="mValueRow9" Height="23" HorizontalAlignment="Left" Margin="157,298,0,0" TabIndex="9" VerticalAlignment="Top" Width="60" LostFocus="MiddleValueRow_LostFocus" GotFocus="Textbox_GotFocus" />
+        <TextBox Name="mValueRow10" Height="23" HorizontalAlignment="Left" Margin="157,326,0,0" TabIndex="10" VerticalAlignment="Top" Width="60" LostFocus="MiddleValueRow_LostFocus" GotFocus="Textbox_GotFocus" />
+        <TextBox Name="mValueRow11" Height="23" HorizontalAlignment="Left" Margin="157,354,0,0" TabIndex="11" VerticalAlignment="Top" Width="60" LostFocus="MiddleValueRow_LostFocus" GotFocus="Textbox_GotFocus" />
+        <TextBox Name="mValueRow12" Height="23" HorizontalAlignment="Left" Margin="157,382,0,0" TabIndex="12" VerticalAlignment="Top" Width="60" LostFocus="MiddleValueRow_LostFocus" GotFocus="Textbox_GotFocus" />
+        <TextBox Name="mValueRow13" Height="23" HorizontalAlignment="Left" Margin="157,410,0,0" TabIndex="13" VerticalAlignment="Top" Width="60" LostFocus="MiddleValueRow_LostFocus" GotFocus="Textbox_GotFocus" />
+        <TextBox Name="mValueRow14" Height="23" HorizontalAlignment="Left" Margin="157,438,0,0" TabIndex="14" VerticalAlignment="Top" Width="60" LostFocus="MiddleValueRow_LostFocus" GotFocus="Textbox_GotFocus" />
+        <TextBox Name="mValueRow15" Height="23" HorizontalAlignment="Left" Margin="157,466,0,0" TabIndex="15" VerticalAlignment="Top" Width="60" LostFocus="MiddleValueRow_LostFocus" GotFocus="Textbox_GotFocus" />
+        <TextBox Name="mValueRow16" Height="23" HorizontalAlignment="Left" Margin="157,494,0,0" TabIndex="16" VerticalAlignment="Top" Width="60" LostFocus="MiddleValueRow_LostFocus" GotFocus="Textbox_GotFocus" />
+        <TextBox Name="mValueRow17" Height="23" HorizontalAlignment="Left" Margin="157,522,0,0" TabIndex="17" VerticalAlignment="Top" Width="60" LostFocus="LastValueRow_LostFocus" GotFocus="Textbox_GotFocus" />
+    </Grid>
+</Window>

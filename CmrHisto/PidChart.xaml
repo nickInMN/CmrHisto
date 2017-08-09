@@ -1,0 +1,18 @@
+﻿<Window x:Class="CmrHisto.PidChart"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        Title="PidChart" Height="645" Width="630" ResizeMode="NoResize">
+    <Control.Resources>
+        <Style x:Key="LegendStyle" TargetType="Control">
+            <Setter Property="Template" Value="{x:Null}"/>
+        </Style>
+    </Control.Resources>
+    <Grid>
+        <DVC:Chart Name="mChart" Width="600" Height="600" Background="LightSteelBlue" LegendStyle="{StaticResource LegendStyle}">
+            <DVC:Chart.Series>
+                <DVC:ColumnSeries Canvas.Top="0" Canvas.Left="0" IndependentValueBinding="{Binding Path=Key}" DependentValueBinding="{Binding Path=Value}"></DVC:ColumnSeries>
+            </DVC:Chart.Series>
+        </DVC:Chart>
+    </Grid>
+</Window>

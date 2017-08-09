@@ -1,0 +1,841 @@
+﻿<Window x:Class="CmrHisto.CmrHistoMain"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="CmrHisto" Height="592" Width="916" Icon="Icons/main.ico" Loaded="Window_Loaded">
+    <Grid>
+        <DataGrid Name="mDataGrid" ColumnHeaderHeight="25" AutoGenerateColumns="true" Margin="0,22,0,0" HeadersVisibility="None" ColumnHeaderStyle="{StaticResource HeaderTextStyle}" RowHeaderStyle="{StaticResource RowHeaderStyle}" ItemsSource="{Binding Path=.}" SelectedCellsChanged="DataGridSelectedCellsChanged">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=[0].DisplayText}" ContextMenuOpening="CellContextMenu_Opening">
+                                <TextBlock.ToolTip>Right click to select a pid to view cell data in a bar chart</TextBlock.ToolTip>
+                                <TextBlock.ContextMenu>
+                                    <ContextMenu></ContextMenu>
+                                </TextBlock.ContextMenu>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=[0].Color}" Value="-1">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[0].Color}" Value="0">
+                                    <Setter Property="Background" Value="LightGray" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[0].Color}" Value="1">
+                                    <Setter Property="Background" Value="LightYellow" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[0].Color}" Value="2">
+                                    <Setter Property="Background" Value="LightPink" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[0].Color}" Value="3">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                            <Setter Property="FontSize" Value="10" />
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=[1].DisplayText}" ContextMenuOpening="CellContextMenu_Opening">
+                                <TextBlock.ToolTip>Right click to select a pid to view cell data in a bar chart</TextBlock.ToolTip>
+                                <TextBlock.ContextMenu>
+                                    <ContextMenu></ContextMenu>
+                                </TextBlock.ContextMenu>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=[1].Color}" Value="-1">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[1].Color}" Value="0">
+                                    <Setter Property="Background" Value="LightGray" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[1].Color}" Value="1">
+                                    <Setter Property="Background" Value="LightYellow" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[1].Color}" Value="2">
+                                    <Setter Property="Background" Value="LightPink" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[1].Color}" Value="3">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                            <Setter Property="FontSize" Value="10" />
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=[2].DisplayText}" ContextMenuOpening="CellContextMenu_Opening">
+                                <TextBlock.ToolTip>Right click to select a pid to view cell data in a bar chart</TextBlock.ToolTip>
+                                <TextBlock.ContextMenu>
+                                    <ContextMenu></ContextMenu>
+                                </TextBlock.ContextMenu>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=[2].Color}" Value="-1">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[2].Color}" Value="0">
+                                    <Setter Property="Background" Value="LightGray" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[2].Color}" Value="1">
+                                    <Setter Property="Background" Value="LightYellow" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[2].Color}" Value="2">
+                                    <Setter Property="Background" Value="LightPink" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[2].Color}" Value="3">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                            <Setter Property="FontSize" Value="10" />
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=[3].DisplayText}" ContextMenuOpening="CellContextMenu_Opening">
+                                <TextBlock.ToolTip>Right click to select a pid to view cell data in a bar chart</TextBlock.ToolTip>
+                                <TextBlock.ContextMenu>
+                                    <ContextMenu></ContextMenu>
+                                </TextBlock.ContextMenu>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=[3].Color}" Value="-1">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[3].Color}" Value="0">
+                                    <Setter Property="Background" Value="LightGray" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[3].Color}" Value="1">
+                                    <Setter Property="Background" Value="LightYellow" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[3].Color}" Value="2">
+                                    <Setter Property="Background" Value="LightPink" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[3].Color}" Value="3">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                            <Setter Property="FontSize" Value="10" />
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=[4].DisplayText}" ContextMenuOpening="CellContextMenu_Opening">
+                                <TextBlock.ToolTip>Right click to select a pid to view cell data in a bar chart</TextBlock.ToolTip>
+                                <TextBlock.ContextMenu>
+                                    <ContextMenu></ContextMenu>
+                                </TextBlock.ContextMenu>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=[4].Color}" Value="-1">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[4].Color}" Value="0">
+                                    <Setter Property="Background" Value="LightGray" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[4].Color}" Value="1">
+                                    <Setter Property="Background" Value="LightYellow" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[4].Color}" Value="2">
+                                    <Setter Property="Background" Value="LightPink" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[4].Color}" Value="3">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                            <Setter Property="FontSize" Value="10" />
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=[5].DisplayText}" ContextMenuOpening="CellContextMenu_Opening">
+                                <TextBlock.ToolTip>Right click to select a pid to view cell data in a bar chart</TextBlock.ToolTip>
+                                <TextBlock.ContextMenu>
+                                    <ContextMenu></ContextMenu>
+                                </TextBlock.ContextMenu>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=[5].Color}" Value="-1">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[5].Color}" Value="0">
+                                    <Setter Property="Background" Value="LightGray" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[5].Color}" Value="1">
+                                    <Setter Property="Background" Value="LightYellow" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[5].Color}" Value="2">
+                                    <Setter Property="Background" Value="LightPink" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[5].Color}" Value="3">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                            <Setter Property="FontSize" Value="10" />
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=[6].DisplayText}" ContextMenuOpening="CellContextMenu_Opening">
+                                <TextBlock.ToolTip>Right click to select a pid to view cell data in a bar chart</TextBlock.ToolTip>
+                                <TextBlock.ContextMenu>
+                                    <ContextMenu></ContextMenu>
+                                </TextBlock.ContextMenu>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=[6].Color}" Value="-1">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[6].Color}" Value="0">
+                                    <Setter Property="Background" Value="LightGray" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[6].Color}" Value="1">
+                                    <Setter Property="Background" Value="LightYellow" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[6].Color}" Value="2">
+                                    <Setter Property="Background" Value="LightPink" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[6].Color}" Value="3">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                            <Setter Property="FontSize" Value="10" />
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=[7].DisplayText}" ContextMenuOpening="CellContextMenu_Opening">
+                                <TextBlock.ToolTip>Right click to select a pid to view cell data in a bar chart</TextBlock.ToolTip>
+                                <TextBlock.ContextMenu>
+                                    <ContextMenu></ContextMenu>
+                                </TextBlock.ContextMenu>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=[7].Color}" Value="-1">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[7].Color}" Value="0">
+                                    <Setter Property="Background" Value="LightGray" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[7].Color}" Value="1">
+                                    <Setter Property="Background" Value="LightYellow" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[7].Color}" Value="2">
+                                    <Setter Property="Background" Value="LightPink" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[7].Color}" Value="3">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                            <Setter Property="FontSize" Value="10" />
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=[8].DisplayText}" ContextMenuOpening="CellContextMenu_Opening">
+                                <TextBlock.ToolTip>Right click to select a pid to view cell data in a bar chart</TextBlock.ToolTip>
+                                <TextBlock.ContextMenu>
+                                    <ContextMenu></ContextMenu>
+                                </TextBlock.ContextMenu>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=[8].Color}" Value="-1">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[8].Color}" Value="0">
+                                    <Setter Property="Background" Value="LightGray" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[8].Color}" Value="1">
+                                    <Setter Property="Background" Value="LightYellow" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[8].Color}" Value="2">
+                                    <Setter Property="Background" Value="LightPink" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[8].Color}" Value="3">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                            <Setter Property="FontSize" Value="10" />
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=[9].DisplayText}" ContextMenuOpening="CellContextMenu_Opening">
+                                <TextBlock.ToolTip>Right click to select a pid to view cell data in a bar chart</TextBlock.ToolTip>
+                                <TextBlock.ContextMenu>
+                                    <ContextMenu></ContextMenu>
+                                </TextBlock.ContextMenu>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=[9].Color}" Value="-1">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[9].Color}" Value="0">
+                                    <Setter Property="Background" Value="LightGray" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[9].Color}" Value="1">
+                                    <Setter Property="Background" Value="LightYellow" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[9].Color}" Value="2">
+                                    <Setter Property="Background" Value="LightPink" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[9].Color}" Value="3">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                            <Setter Property="FontSize" Value="10" />
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=[10].DisplayText}" ContextMenuOpening="CellContextMenu_Opening">
+                                <TextBlock.ToolTip>Right click to select a pid to view cell data in a bar chart</TextBlock.ToolTip>
+                                <TextBlock.ContextMenu>
+                                    <ContextMenu></ContextMenu>
+                                </TextBlock.ContextMenu>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=[10].Color}" Value="-1">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[10].Color}" Value="0">
+                                    <Setter Property="Background" Value="LightGray" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[10].Color}" Value="1">
+                                    <Setter Property="Background" Value="LightYellow" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[10].Color}" Value="2">
+                                    <Setter Property="Background" Value="LightPink" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[10].Color}" Value="3">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                            <Setter Property="FontSize" Value="10" />
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=[11].DisplayText}" ContextMenuOpening="CellContextMenu_Opening">
+                                <TextBlock.ToolTip>Right click to select a pid to view cell data in a bar chart</TextBlock.ToolTip>
+                                <TextBlock.ContextMenu>
+                                    <ContextMenu></ContextMenu>
+                                </TextBlock.ContextMenu>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=[11].Color}" Value="-1">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[11].Color}" Value="0">
+                                    <Setter Property="Background" Value="LightGray" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[11].Color}" Value="1">
+                                    <Setter Property="Background" Value="LightYellow" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[11].Color}" Value="2">
+                                    <Setter Property="Background" Value="LightPink" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[11].Color}" Value="3">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                            <Setter Property="FontSize" Value="10" />
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=[12].DisplayText}" ContextMenuOpening="CellContextMenu_Opening">
+                                <TextBlock.ToolTip>Right click to select a pid to view cell data in a bar chart</TextBlock.ToolTip>
+                                <TextBlock.ContextMenu>
+                                    <ContextMenu></ContextMenu>
+                                </TextBlock.ContextMenu>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=[12].Color}" Value="-1">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[12].Color}" Value="0">
+                                    <Setter Property="Background" Value="LightGray" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[12].Color}" Value="1">
+                                    <Setter Property="Background" Value="LightYellow" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[12].Color}" Value="2">
+                                    <Setter Property="Background" Value="LightPink" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[12].Color}" Value="3">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                            <Setter Property="FontSize" Value="10" />
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=[13].DisplayText}" ContextMenuOpening="CellContextMenu_Opening">
+                                <TextBlock.ToolTip>Right click to select a pid to view cell data in a bar chart</TextBlock.ToolTip>
+                                <TextBlock.ContextMenu>
+                                    <ContextMenu></ContextMenu>
+                                </TextBlock.ContextMenu>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=[13].Color}" Value="-1">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[13].Color}" Value="0">
+                                    <Setter Property="Background" Value="LightGray" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[13].Color}" Value="1">
+                                    <Setter Property="Background" Value="LightYellow" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[13].Color}" Value="2">
+                                    <Setter Property="Background" Value="LightPink" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[13].Color}" Value="3">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                            <Setter Property="FontSize" Value="10" />
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=[14].DisplayText}" ContextMenuOpening="CellContextMenu_Opening">
+                                <TextBlock.ToolTip>Right click to select a pid to view cell data in a bar chart</TextBlock.ToolTip>
+                                <TextBlock.ContextMenu>
+                                    <ContextMenu></ContextMenu>
+                                </TextBlock.ContextMenu>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=[14].Color}" Value="-1">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[14].Color}" Value="0">
+                                    <Setter Property="Background" Value="LightGray" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[14].Color}" Value="1">
+                                    <Setter Property="Background" Value="LightYellow" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[14].Color}" Value="2">
+                                    <Setter Property="Background" Value="LightPink" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[14].Color}" Value="3">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                            <Setter Property="FontSize" Value="10" />
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=[15].DisplayText}" ContextMenuOpening="CellContextMenu_Opening">
+                                <TextBlock.ToolTip>Right click to select a pid to view cell data in a bar chart</TextBlock.ToolTip>
+                                <TextBlock.ContextMenu>
+                                    <ContextMenu></ContextMenu>
+                                </TextBlock.ContextMenu>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=[15].Color}" Value="-1">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[15].Color}" Value="0">
+                                    <Setter Property="Background" Value="LightGray" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[15].Color}" Value="1">
+                                    <Setter Property="Background" Value="LightYellow" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[15].Color}" Value="2">
+                                    <Setter Property="Background" Value="LightPink" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[15].Color}" Value="3">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                            <Setter Property="FontSize" Value="10" />
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=[16].DisplayText}" ContextMenuOpening="CellContextMenu_Opening">
+                                <TextBlock.ToolTip>Right click to select a pid to view cell data in a bar chart</TextBlock.ToolTip>
+                                <TextBlock.ContextMenu>
+                                    <ContextMenu></ContextMenu>
+                                </TextBlock.ContextMenu>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=[16].Color}" Value="-1">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[16].Color}" Value="0">
+                                    <Setter Property="Background" Value="LightGray" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[16].Color}" Value="1">
+                                    <Setter Property="Background" Value="LightYellow" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[16].Color}" Value="2">
+                                    <Setter Property="Background" Value="LightPink" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=[16].Color}" Value="3">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                            <Setter Property="FontSize" Value="10" />
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Menu Height="22" VerticalAlignment="Top">
+            <Menu.Effect>
+                <DropShadowEffect />
+            </Menu.Effect>
+            <MenuItem Header="_File">
+                <MenuItem Header="_Open CSV..." Click="ShowOpenFileDialog">
+                    <MenuItem.Icon>
+                        <Image Source="Icons/open.ico" Width="20" Height="20" />
+                    </MenuItem.Icon>
+                    <MenuItem.ToolTip>
+                        <ToolTip>Open a CSV file.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Name="mSaveToHtmlMenuItem" Header="_Save Current View to HTML..." IsEnabled="false" Click="ShowSaveToHtmlDialog">
+                    <MenuItem.Icon>
+                        <Image Source="Icons/save.ico" Width="20" Height="20" />
+                    </MenuItem.Icon>
+                    <MenuItem.ToolTip>
+                        <ToolTip>Save the current view to an HTML file.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="C_ustom PIDs" Click="ShowCustomPidDialog">
+                    <MenuItem.Icon>
+                        <Image Source="Icons/custom-pids.ico" Width="20" Height="20" />
+                    </MenuItem.Icon>
+                    <MenuItem.ToolTip>
+                        <ToolTip>Show the Custom PIDs help dialog.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="_Edit Settings" Click="ShowSettingsDialog">
+                    <MenuItem.Icon>
+                        <Image Source="Icons/settings.ico" Width="20" Height="20" />
+                    </MenuItem.Icon>
+                    <MenuItem.ToolTip>
+                        <ToolTip>Show the settings dialog.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="_Exit" Click="Exit">
+                    <MenuItem.Icon>
+                        <Image Source="Icons/exit.ico" Width="20" Height="20" />
+                    </MenuItem.Icon>
+                    <MenuItem.ToolTip>
+                        <ToolTip>Exit CmrHisto.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Name="mDataMenuItem" Header="_Data" IsEnabled="false">
+                <MenuItem Header="_Select PID to Highlight" Click="SelectPidToColorClicked">
+                    <MenuItem.Icon>
+                        <Image Source="Icons/colorize.ico" Width="20" Height="20" />
+                    </MenuItem.Icon>
+                    <MenuItem.ToolTip>
+                        <ToolTip>Select the PID you want to highlight.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="_Copy PID To Clipboard..."  Click="ShowCopyPidToClipboardDialog">
+                    <MenuItem.Icon>
+                        <Image Source="Icons/copy.ico" Width="20" Height="20" />
+                    </MenuItem.Icon>
+                    <MenuItem.ToolTip>
+                        <ToolTip>Copies the values for the selected PID to the clipboard.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="_Export PID to CSV..." Click="ShowExportPidDialog">
+                    <MenuItem.Icon>
+                        <Image Source="Icons/export.ico" Width="20" Height="20" />
+                    </MenuItem.Icon>
+                    <MenuItem.ToolTip>
+                        <ToolTip>Exports the values for the selected PID to a csv file.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="Show Surface Map" Click="ShowSurfaceMapClick">
+                    <MenuItem.Icon>
+                        <Image Source="Icons/surface-map.ico" Width="20" Height="20" />
+                    </MenuItem.Icon>
+                    <MenuItem.ToolTip>
+                        <ToolTip>Select a PID to see a 3D surface map for.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Name="mShowPidLabelsMenuItem" Header="Show _PID Labels" IsCheckable="true" Click="ShowDataMenuItem_Click">
+                    <MenuItem.ToolTip>
+                        <ToolTip>Show the text labels for each selected PID.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Name="mShowCustomPidLabelsMenuItem" Header="Show _Custom PID Labels" IsCheckable="true" Click="ShowDataMenuItem_Click">
+                    <MenuItem.ToolTip>
+                        <ToolTip>Show your custom lables for each PID.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Name="mShowMinAndMaxMenuItem" Header="Show _Min/Max" IsCheckable="true" Click="ShowDataMenuItem_Click">
+                    <MenuItem.ToolTip>
+                        <ToolTip>Show the minimum, maximim value for each PID.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Name="mShowAverageMenuItem" Header="Show _Average" IsCheckable="true" Click="ShowDataMenuItem_Click">
+                    <MenuItem.ToolTip>
+                        <ToolTip>Show the minimum, maximim value for each PID.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Name="mShowLastMenuItem" Header="Show _Last" IsCheckable="true" Click="ShowDataMenuItem_Click">
+                    <MenuItem.ToolTip>
+                        <ToolTip>Show the last recorded value for each PID.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Name="mShowSampleSizeMenuItem" Header="Show _Sample Size" IsCheckable="true" Click="ShowDataMenuItem_Click">
+                    <MenuItem.ToolTip>
+                        <ToolTip>Show the number of samples for each cell.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Scaling">
+                <MenuItem Header="RPM Scaling" Click="ShowRpmScalingDialog">
+                    <MenuItem.Icon>
+                        <Image Source="Icons/scale.ico" Width="20" Height="20" />
+                    </MenuItem.Icon>
+                    <MenuItem.ToolTip>
+                        <ToolTip>Define RPM scale points.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Name="mYAxisScalingMenuItem" Header="PRatio Scaling" Click="ShowYAxisScalingDialog">
+                    <MenuItem.Icon>
+                        <Image Source="Icons/scale.ico" Width="20" Height="20" />
+                    </MenuItem.Icon>
+                    <MenuItem.ToolTip>
+                        <ToolTip Name="mYAxisScaleToolTip">Define PRatio scale points.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Name="mScaleToSelectedCellsMenuItem" Header="_Scale to Selected Cells" IsEnabled="false" Click="ScaleToSelected">
+                    <MenuItem.Icon>
+                        <Image Source="Icons/scale-cells.ico" Width="20" Height="20" />
+                    </MenuItem.Icon>
+                    <MenuItem.ToolTip>
+                        <ToolTip>Rescale the data using the selected cells.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Name="mSortMenuItem" Header="S_ort" IsEnabled="false">
+                <MenuItem Name="mYAxisAscendingSortMenuItem" Header="PRatio _Ascending" IsCheckable="true" IsChecked="true" Click="AscendingSortChecked">
+                    <MenuItem.ToolTip>
+                        <ToolTip>Sort the data in ascending PRatio order.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Name="mYAxisDescendingSortMenuItem" Header="PRatio _Descending" IsCheckable="true" Click="DescendingSortChecked">
+                    <MenuItem.ToolTip>
+                        <ToolTip>Sort the data in descending PRatio order.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About" Click="ShowAboutDialog">
+                    <MenuItem.Icon>
+                        <Image Source="Icons/about.ico" Width="20" Height="20" />
+                    </MenuItem.Icon>
+                    <MenuItem.ToolTip>
+                        <ToolTip>Show the about dialog.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="_Check for Updates" Click="ShowUpdatesDialog">
+                    <MenuItem.Icon>
+                        <Image Source="Icons/update.ico" Width="20" Height="20" />
+                    </MenuItem.Icon>
+                    <MenuItem.ToolTip>
+                        <ToolTip>Check the internet for updates to CmrHisto.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</Window>

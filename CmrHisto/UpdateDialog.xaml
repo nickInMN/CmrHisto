@@ -1,0 +1,7 @@
+﻿<Window x:Class="CmrHisto.UpdateDialog"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Checking for Updates" Height="168" Width="300" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" Icon="Icons/update.ico">
+    <Grid>
+        <TextBlock Name="mUpdateTextBlock" TextWrapping="Wrap" Padding="5" Margin="0,0,0,71" Height="118" Width="267">Please wait while we check for a newer version of CmrHisto...</TextBlock>
+        <ProgressBar Name="mProgressBar" Height="25" IsIndeterminate="true" />
+    </Grid>
+</Window>

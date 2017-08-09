@@ -1,0 +1,58 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:charts="clr-namespace:Infragistics.Controls.Charts;assembly=DataChart3D">
+
+    <!-- ********************************** THEME COLORS **********************************-->
+
+    <!--Base Colors-->
+    <Color x:Key="Color_001">#FFFFFFFF</Color>
+    <Color x:Key="Color_002">#FFC4C4C4</Color>
+    <Color x:Key="Color_003">#FFA1A1A1</Color>
+    <Color x:Key="Color_004">#FF898989</Color>
+    <Color x:Key="Color_005">#FF686868</Color>
+    <Color x:Key="Color_006">#FF505050</Color>
+    <Color x:Key="Color_008">#FF353535</Color>
+    <Color x:Key="Color_009">#FF252525</Color>
+    <Color x:Key="Color_010">#FF181818</Color>
+    <Color x:Key="Color_016">#00FFFFFF</Color>
+    <Color x:Key="Color_024">#FF00AADE</Color>
+    <Color x:Key="Color_028">#FFD0284C</Color>
+    <Color x:Key="Color_064">#33565656</Color>
+
+    <!--Colors for Chart Series-->
+    <Color x:Key="Color_06266">#BF00AADE</Color>
+    <Color x:Key="Color_036667">#BFFCA910</Color>
+    <Color x:Key="Color_066648">#BFAD0F31</Color>
+
+    <!-- *********************************  BRUSHES  ********************************* -->
+	<SolidColorBrush x:Key="ForegroundBrush" Color="Black"/>
+	<SolidColorBrush x:Key="TransparentBrush" Color="{StaticResource Color_016}"/>
+
+    <SolidColorBrush x:Key="LegendBackgroundBrush" Color="{StaticResource Color_009}" Opacity="0.9"/>
+    <SolidColorBrush x:Key="LegendBorderBrush" Color="{StaticResource Color_006}" Opacity="0.9"/>
+
+
+    <!-- *********************************  App Margins  ********************************* -->	
+    <Thickness x:Key="LeftContainerMargins">30</Thickness>
+    <Thickness x:Key="RightContainerMargins">0,30,30,30</Thickness>
+
+  <!-- *********************************  TextBlock Style  ********************************* -->
+	<Style x:Key="TextBlockStyle" TargetType="TextBlock">
+		<Setter Property="Foreground" Value="Black" />
+		<Setter Property="FontSize" Value="14.667" />
+		<Setter Property="FontFamily" Value="Segoe UI" />
+	</Style>
+
+	<Style x:Key="HeaderTextStyle" TargetType="{x:Type DataGridColumnHeader}">
+		<Setter Property="Content" Value="." />
+		<Setter Property="ToolTip" Value="{Binding Path=ToolTip}" />
+		<Setter Property="HorizontalAlignment" Value="Center" />
+	</Style>
+    <Style x:Key="RowHeaderStyle" TargetType="{x:Type DataGridRowHeader}">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Content" Value="{Binding Path=[0].YAxisValue}" />
+        <Setter Property="ToolTip" Value="{Binding Path=[0].YAxisToolTip}" />
+    </Style>
+</ResourceDictionary>

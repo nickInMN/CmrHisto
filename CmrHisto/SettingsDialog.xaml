@@ -1,0 +1,30 @@
+﻿<Window x:Class="CmrHisto.SettingsDialog" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="CmrHisto Settings" Height="300" Width="300" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" Icon="Icons/settings.ico">
+    <Grid>
+        <CheckBox Name="mAutomaticallyLoadRpmScaleCheckbox" Height="16" HorizontalAlignment="Left" Margin="12,34,0,0" VerticalAlignment="Top" Click="AutomaticallyLoadRpmScaleCheckbox_Click">Automatically load an RPM scale.</CheckBox>
+        <CheckBox Name="mAutomaticallyLoadYAxisScaleCheckbox" Height="16" HorizontalAlignment="Left" Margin="12,85,0,0" VerticalAlignment="Top" Click="AutomaticallyLoadYAxisScaleCheckbox_Click">Automatically load a Y axis scale.</CheckBox>
+        <TextBox Name="mRpmScaleFileTextbox" Height="23" HorizontalAlignment="Left" Margin="32,56,0,0" IsEnabled="false" VerticalAlignment="Top" Width="219" />
+        <TextBox Name="mYAxisScaleFileTextbox" Height="23" HorizontalAlignment="Left" Margin="32,107,0,0" IsEnabled="false" VerticalAlignment="Top" Width="219" />
+        <Label Height="28" HorizontalAlignment="Left" Margin="9,177,0,0" VerticalAlignment="Top">Language:</Label>
+        <ComboBox Name="mLanguageDropDown" Height="23" HorizontalAlignment="Left" Margin="12,200,0,0" VerticalAlignment="Top" Width="120" SelectedValuePath="Tag">
+            <ComboBox.Items>
+                <ComboBoxItem Content="English (US)" Tag="en-US" />
+                <ComboBoxItem Content="German (Germany)" Tag="de-DE" />
+            </ComboBox.Items>
+        </ComboBox>
+        <CheckBox Name="mAutomaticallyCheckForUpdatesCheckbox" Height="16" HorizontalAlignment="Left" Margin="12,12,0,0" VerticalAlignment="Top">Check for updates when CmrHisto loads</CheckBox>
+        <Button Name="mSaveButton" Content="Save" Height="23" HorizontalAlignment="Left" Margin="48,235,0,0" VerticalAlignment="Top" Width="75" Click="SaveButton_Click" />
+        <Button Name="mCancelButton" Content="Cancel" Height="23" HorizontalAlignment="Right" Margin="0,235,47,0" VerticalAlignment="Top" Width="75" Click="CancelButton_Click" />
+        <Button Name="mBrowseForRpmFileButton" Content="..." Height="23" HorizontalAlignment="Left" Margin="257,56,0,0" IsEnabled="false" VerticalAlignment="Top" Width="21" Click="BrowseForRpmFileButton_Click" />
+        <Button Name="mBrowseForYAxisFileButton" Content="..." Height="23" HorizontalAlignment="Left" Margin="257,106,0,0" IsEnabled="false" VerticalAlignment="Top" Width="21" Click="BrowseForYAxisFileButton_Click" />
+        <CheckBox Name="mDontShowScaleWarningCheckbox" Height="16" HorizontalAlignment="Left" Margin="12,136,0,0" VerticalAlignment="Top">
+            <CheckBox.ToolTip>
+                <TextBlock>
+                    Checking this will prevent a popup when you check that<LineBreak />
+                    you want to use a PID other than PRatio for the Y axis.</TextBlock>
+            </CheckBox.ToolTip>
+            Don't show scale warning.
+        </CheckBox>
+        <CheckBox Content="Select scale value when entering textbox" Height="16" HorizontalAlignment="Left" Margin="12,160,0,0" Name="mSelectScaleValueCheckbox" VerticalAlignment="Top" />
+    </Grid>
+
+</Window>

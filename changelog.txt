@@ -1,0 +1,60 @@
+1.1.0.13
+Added:
+Logging to application
+
+Fixed:
+Viewing the number of occurrences for a pid value caused the application to crash
+Issue with PIDs not being ordered if CustomPids.xml was not found
+Imporved performance when generating surface chart
+Issue where loading a scale always resulted in an error messagebox
+Better detection of missing PRatio columns
+Automatically check "Use a different PID for the y-axis" if PRatio column not found
+
+1.1.0.12
+Added:
+Progress dialog when surface map is being generated
+
+Fixed:
+The labels on the surface map are not displayed
+The title of the surface map window is showing garbage data
+Scale not being applied when loaded from a file
+Text on auto scale y axis checkbox when use a different pid for y axis is checked
+Data is incorrect if sorting before exporting to CSV or clipboard
+Fixed bug where double clicking the PID selection box without selecting a PID caused an error
+
+Changed:
+Removed WPFToolkit dependency (WPFToolkit.dll may be deleted from the folder)
+Updated SharpGL
+
+1.1.0.11
+Added:
+Ability to view the number of each value for a given PID in a cell of the histogram
+
+Fixed:
+Data disappearing when selecting only a calculated PID and then sorting the data
+Data disappearing when changing the scale after loading a csv file
+
+1.1.0.10
+Added:
+Option to select German for the language
+Setting to prevent the value from being selected when entering a scale value textbox in the scale dialog
+
+Fixed:
+Problem for international users that use a comma as the decimal mark (Select German in the settings page)
+Issue when loading a log that doesn't have a computed PID after loading one that does
+Issue with closing the load scale browse window without selecting a scale file
+Issue when clicking the apply button on scale causing the data to disappear
+
+Changed:
+Set automatically check for updates to true
+Updated surface map axis drawing code to be more performant
+Removed LT Fuel PID from custom PIDs
+Removed reference to Microsoft.Jet.OLEDB.4.0 so CmrHisto can run as a 64 bit process
+Automatically select the value of the scale when entering a textbox
+
+1.1.0.9
+fixed a bug when clicking cancel in the file name box of export to csv
+fixed a bug with scale calculation
+fixed a bug when changing scale before loading data
+
+Added 3D surface map feature

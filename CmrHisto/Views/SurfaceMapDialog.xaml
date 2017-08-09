@@ -1,0 +1,39 @@
+﻿<Window x:Class="CmrHisto.Views.SurfaceMapDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{Binding Title}" Height="776" Width="1032"
+        xmlns:sharpGL="clr-namespace:SharpGL.WPF;assembly=SharpGL.WPF" 
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        ResizeMode="NoResize" 
+        Icon="../Icons/main.ico"
+        WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False">
+    <xctk:BusyIndicator IsBusy="{Binding IsBusy}" BusyContent="{Binding BusyText}">
+        <Grid>
+            <sharpGL:OpenGLControl Height="734" Width="734" Name="_openGLControl" OpenGLDraw="OpenGLControl_OpenGLDraw" OpenGLInitialized="OpenGLControl_OpenGLInitialized" MouseDown="OpenGLControl_MouseDown" MouseUp="OpenGLControl_MouseUp" MouseMove="OpenGLControl_MouseMove" RenderContextType="FBO" Margin="274,0,0,0" />
+            <CheckBox Content="Show Lines" Height="16" HorizontalAlignment="Left" Margin="148,218,0,0" VerticalAlignment="Top" IsChecked="{Binding ShowLines}" Visibility="{Binding ShowLinesVisibility}" />
+            <CheckBox Content="Show Colors" Height="16" HorizontalAlignment="Left" Margin="148,218,0,0" VerticalAlignment="Top" IsChecked="{Binding ShowColors}" Visibility="{Binding ShowColorsVisibility}" />
+            <ListBox Margin="12,27,0,0" ItemsSource="{Binding PidNames}" SelectionMode="Single" SelectionChanged="PidListboxSelectionChanged" MouseDoubleClick="PidListbox_MouseDoubleClick" HorizontalAlignment="Left" Width="247" VerticalAlignment="Top" Height="154" />
+            <Label Content="Select the PID you would like to plot." Height="28" Margin="10,3,734,0" VerticalAlignment="Top" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="12,215,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding RenderModes}" SelectedValue="{Binding RenderMode}" />
+            <Label Content="Plotting Mode" Height="28" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Width="256" />
+            <Button Content="Show Plot" Height="23" HorizontalAlignment="Left" Margin="12,302,0,0" VerticalAlignment="Top" Width="75" IsEnabled="{Binding ShowMapEnabled}" Click="MapButtonClicked" />
+            <Button Content="Close" Height="23" HorizontalAlignment="Left" Margin="184,302,0,0" VerticalAlignment="Top" Width="75" Click="CloseButtonClicked" />
+            <Button Content="Center" Height="23" HorizontalAlignment="Left" Margin="98,302,0,0" VerticalAlignment="Top" Width="75" Click="CenterButton_Click" />
+            <Image Height="335" HorizontalAlignment="Left" Margin="77,363,0,0" Source="{Binding LegendImagePath}" Stretch="Fill" VerticalAlignment="Top" Width="37" Visibility="{Binding LegendVisibility}">
+                <Image.ToolTip>
+                    <TextBlock>
+                        To change the colors create a 1 pixel wide by 335 pixel<LineBreak />
+                        tall image, name it gradient.bmp and put it in the same <LineBreak />
+                        folder as CmrHisto.exe, then restart CmrHisto.
+                    </TextBlock>
+                </Image.ToolTip>
+            </Image>
+            <Label Height="28" HorizontalAlignment="Left" Margin="121,349,0,0" VerticalAlignment="Top" Width="120" Content="{Binding LegendHighText}" Visibility="{Binding LegendVisibility}" />
+            <Label Height="28" HorizontalAlignment="Left" Margin="121,526,0,0" VerticalAlignment="Top" Width="120" Content="{Binding LegendMidText}" Visibility="{Binding LegendVisibility}" />
+            <Label Height="28" HorizontalAlignment="Left" Margin="121,684,0,0" VerticalAlignment="Top" Width="120" Content="{Binding LegendLowText}" Visibility="{Binding LegendVisibility}" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="12,269,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding DataTypes}" SelectedValue="{Binding DataType}" SelectionChanged="DataType_SelectionChanged" />
+            <Label Content="Parameter to plot" Height="28" HorizontalAlignment="Left" Margin="12,241,0,0" VerticalAlignment="Top" Width="247" />
+        </Grid>
+    </xctk:BusyIndicator>
+</Window>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<pids>
+  <!--
+		Add your own pid custom text here.  Enter the PID name EXACTLY as it appears in DSDataViewer 
+		in the "name" attribute, and the text you would like it replaced with in the "custom" attribute.
+		For Example, the following rule would replace "RPM" with "Revolutions Per Minute" when the PID
+		is displayed in CmrHisto:
+		<pid name="RPM" custom="Revolutions Per Minute" />
+	-->
+</pids>

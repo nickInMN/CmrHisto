@@ -1,0 +1,29 @@
+﻿<Window x:Class="CmrHisto.PidSelectionDialog" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Select PIDs for Display" Height="570" Width="420" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" Icon="Icons/main.ico">
+    <Grid>
+        <ListBox Name="mPidListbox" Margin="10,53,168,0" Height="132" VerticalAlignment="Top" SelectionMode="Extended" SelectionChanged="PidListSelectionChanged" />
+        <TextBlock Height="32" VerticalAlignment="Top" Margin="10,12,-1,0">Select the PID(s) you would like to view.
+            <LineBreak/>
+            Hold shift to select multiple, hold ctrl to add/remove a selected PID.
+        </TextBlock>
+        <CheckBox Name="mAutoScaleRpmCheckbox" Height="16" HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top" Width="120">Auto scale RPM</CheckBox>
+        <CheckBox Name="mAutoScaleYAxisCheckbox" Height="16" HorizontalAlignment="Left" Margin="10,213,0,0" VerticalAlignment="Top" Width="120" Click="AutoScaleYAxisCheckboxChecked">Auto scale PRatio</CheckBox>
+        <Button Name="mGoButton" Height="23" Margin="166,496,157,0" VerticalAlignment="Top" IsCancel="false" IsEnabled="false" Click="OkayButtonClick">Go!</Button>
+        <CheckBox Name="mOnlyPositiveRatioCheckbox" Height="16" Margin="27,235,197,0" VerticalAlignment="Top" IsEnabled="false">Only use PRatio higher than 1</CheckBox>
+        <Label Height="Auto" HorizontalAlignment="Right" Margin="0,53,12,0" VerticalAlignment="Top" Width="150" MaxWidth="150">
+            <TextBlock Name="mPidsUsedTextBlock" TextWrapping="Wrap" />
+        </Label>
+        <CheckBox Name="mOnlyShowEctsBetweenRangeCheckbox" Height="16" Margin="12,307,140,0" VerticalAlignment="Top" Click="OnlyShowEctsBetweenRangeCheckboxChecked">Only show ECTs between the range below.</CheckBox>
+        <Label Height="28" HorizontalAlignment="Left" Margin="12,329,0,0" VerticalAlignment="Top" Width="38">Low</Label>
+        <TextBox Name="mEctLowRangeTextbox" Height="23" Margin="45,331,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="49" IsEnabled="false" LostFocus="EctRangeTexeboxLostFocus" />
+        <Label Height="28" Margin="100,329,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="43">High</Label>
+        <TextBox Name="mEctHighRangeTextbox" Height="23" Margin="0,331,212,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="48" IsEnabled="false" LostFocus="EctRangeTexeboxLostFocus" />
+        <CheckBox Name="mShowPidLabelsCheckbox" Height="16" HorizontalAlignment="Left" Margin="12,364,0,0" IsChecked="True" VerticalAlignment="Top" Click="ShowPidLabelsClick">Show a label with the name of each PID.</CheckBox>
+        <CheckBox Name="mUseCustomPidNamesCheckbox" Height="16" HorizontalAlignment="Left" Margin="33,386,0,0" VerticalAlignment="Top" ToolTip="Use this if you would like to define the text displayed for a particular PID. Go to File -> Custom PIDs for more info.">Show Custom PID names.</CheckBox>
+        <CheckBox Name="mShowMinAndMaxCheckbox" Height="16" HorizontalAlignment="Left" Margin="12,408,0,0" IsChecked="True" VerticalAlignment="Top" Click="ValueSelectionChanged">Show the min and max value for each PID.</CheckBox>
+        <CheckBox Name="mShowAverageCheckbox" Height="16" HorizontalAlignment="Left" Margin="12,430,0,0" IsChecked="False" VerticalAlignment="Top" Click="ValueSelectionChanged">Show the average value for each PID.</CheckBox>
+        <CheckBox Name="mShowLastValueCheckbox" Height="16" HorizontalAlignment="Left" Margin="12,452,0,0" VerticalAlignment="Top" Click="ValueSelectionChanged">Show the last value for each PID.</CheckBox>
+        <CheckBox Name="mShowSampleSizeCheckbox" Height="16" HorizontalAlignment="Left" Margin="12,474,0,0" IsChecked="True" VerticalAlignment="Top">Show the sample size for each cell.</CheckBox>
+        <CheckBox Name="mUseCustomYAxisCheckbox" Height="16" HorizontalAlignment="Left" Margin="12,257,0,0" VerticalAlignment="Top" Click="UseCustomYAxis_Click">Use a different PID for the y-axis</CheckBox>
+        <ComboBox Name="mCustomYAxisPidDropdown" Height="23" HorizontalAlignment="Left" Margin="33,278,0,0" SelectedIndex="0" VerticalAlignment="Top" Width="219" IsEnabled="false" />
+    </Grid>
+</Window>
